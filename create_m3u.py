@@ -7,6 +7,7 @@ Created on 24.03.2015
 from __future__ import print_function
 import os
 import sys
+import platform
 
 if __name__ == '__main__':
     pass
@@ -29,7 +30,11 @@ def checkDir(direc):
     foundMusicFiles.sort()
     if (not found_m3u and (len(foundMusicFiles)>0)):
         print('###################################')
-        a = direc.rfind('\\') # on Windows
+        a = ""
+        if platform.system().find('Linux') > -1:
+            a = direc.rfind('/')
+        else:
+            a = direc.rfind('\\') # on Windows
         directoryName = direc[a+1:]
         print(directoryName)
         file = open(direc+"/"+directoryName+".m3u", "w")
