@@ -14,8 +14,8 @@ if __name__ == '__main__':
 
 def check_dir(direc):
     '''
-    check the directory mp3,
-    ogg, and msu files
+    check the directory for mp3,
+    ogg, ,flac, and m3u files
     @param direc directory where the search starts
     '''
     found_m3u = False
@@ -27,9 +27,13 @@ def check_dir(direc):
         elif((filename.find('.ogg') > 0) or (filename.find('.OGG') > 0)):
             found_music_files.append(filename)
             print ('OGG: '+filename)
+        elif((filename.find('.flac') > 0) or (filename.find('.FLAC') > 0)):
+            found_music_files.append(filename)
+            print ('FLAC: '+filename)
         elif(filename.find('.m3u') > 0 or filename.find('.M3U')):
             found_m3u = True
             print ('found_m3u: '+ filename)
+        
         print (filename)
 
     found_music_files.sort()
