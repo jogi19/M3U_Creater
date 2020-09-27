@@ -30,7 +30,10 @@ def check_dir(direc):
         elif((filename.find('.flac') > 0) or (filename.find('.FLAC') > 0)):
             found_music_files.append(filename)
             print ('FLAC: '+filename)
-        elif(filename.find('.m3u') > 0 or filename.find('.M3U')):
+        elif((filename.find('.m4a') > 0) or (filename.find('.M4A') > 0)):
+            found_music_files.append(filename)
+            print ('FLAC: '+filename)
+        elif((filename.find('.m3u') > 0) or (filename.find('.M3U') > 0)):
             found_m3u = True
             print ('found_m3u: '+ filename)
         
@@ -56,7 +59,8 @@ def check_dir(direc):
         fil.close()
 
 START_DIR = sys.argv[1]
-
+START_DIR = os.path.abspath(START_DIR)
+print(START_DIR)
 for dirname, dirnames, filenames in os.walk(START_DIR):
     for subdirname in dirnames:
         print ("FOUND DIRECTORY: ", os.path.join(dirname, subdirname))
