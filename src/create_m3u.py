@@ -21,19 +21,20 @@ def check_dir(direc):
     found_m3u = False
     found_music_files = []
     for filename in os.listdir(direc):
-        if((filename.find('.mp3') > 0) or (filename.find('.MP3') > 0)):
+        
+        if(filename.endswith('.mp3')  or filename.endswith('.MP3')):
             found_music_files.append(filename)
             print ('MP3: '+filename)
-        elif((filename.find('.ogg') > 0) or (filename.find('.OGG') > 0)):
+        elif(filename.endswith('.ogg') or filename.endswith('.OGG')):
             found_music_files.append(filename)
             print ('OGG: '+filename)
-        elif((filename.find('.flac') > 0) or (filename.find('.FLAC') > 0)):
+        elif(filename.endswith('.flac') or filename.endswith('.FLAC')):
             found_music_files.append(filename)
             print ('FLAC: '+filename)
-        elif((filename.find('.m4a') > 0) or (filename.find('.M4A') > 0)):
+        elif(filename.endswith('.m4a') or filename.endswith('.M4A')):
             found_music_files.append(filename)
             print ('FLAC: '+filename)
-        elif((filename.find('.m3u') > 0) or (filename.find('.M3U') > 0)):
+        elif(filename.endswith('.m3u') or filename.endswith('.M3U')):
             found_m3u = True
             print ('found_m3u: '+ filename)
         
